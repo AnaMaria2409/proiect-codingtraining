@@ -1,0 +1,211 @@
+ *{
+    box-sizing: border-box;
+  }
+
+@media only screen and (max-width: 767px) {
+
+    html, body{
+        height: 100%;
+        margin: 0; 
+        background-blend-mode: darken;
+        background-image: url("back4.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+    header{
+        font-family: sans-serif;
+        color: white;
+        padding: 3%;
+        height: 5%;
+        border: none; 
+    }
+    .log div{
+        display: inline-block;
+        width: 120px;
+    }
+
+    .log{
+        float: right;
+    }
+    .log input[type=text], .log input[type=password]{
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 50%;
+        height: 10px;
+    }
+    label{
+        font-size:10px;
+    }
+    .btn{
+        width: 40px;
+        height: 10px;
+        padding: 4px;
+        border-radius: 4px;
+        color:white;
+        background: rgb(46, 45, 45);
+        font: 6px sans-serif;
+        text-align: center;
+        border: solid 2px rgb(29, 28, 28);
+    }
+     #sus{
+         height: 20%;
+     }
+    .principal{
+       width: 100%;
+       height:70%;
+       display: inline-block;
+    }
+    .main{
+        height: 95%;
+    }
+
+    #motto{
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        color:white;
+        font-family: sans-serif;
+        padding: 15px;
+        position: relative;
+        top:10%;
+    }
+    .sign{
+        width: 45%;
+        height: 200px;
+        border-radius: 10px;
+        text-align: center;
+        position: relative;
+        left:30%;
+        right: 33.33%;
+        top:10%;
+        font-family: sans-serif;
+        background: white;
+    }
+    .sign input[type=text], .sign input[type=password], .sign input[type=email]{
+        width:70%;
+        height: 10%; 
+        border: solid 2px gray;
+        color: gray;
+    }
+   
+    .sign div{
+        text-align: center;
+        display: block;
+        padding: 2px;
+        font-family: sans-serif;
+    }
+    .sign p{
+        padding: 2%;
+        font-weight: bold;
+    }
+  }
+
+
+  @media only screen and (min-width: 768px) {
+    html, body{
+      background-blend-mode: darken;
+      background-image: url("back2.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 95%;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+    header{
+        font-family: sans-serif;
+        color: white;
+        padding: 20px;
+        height: 10%;
+        border: none; 
+    } 
+    
+    .log{
+        float: right;
+    }
+    .log div{
+        display: inline-block;
+    }
+    
+    .log input[type=text], .log input[type=password]{
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 60%;
+    }
+    
+    .btn{
+        width: 60px;
+        height: 25px;
+        border-radius: 5px;
+        color:white;
+        background: rgb(46, 45, 45);
+        font: 15px sans-serif;
+        border: solid 2px rgb(29, 28, 28);
+    }
+    
+    .principal{
+        width: 50%;
+        float: left;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    #motto{
+        text-align: center;
+        font-size: 40px;
+        font-weight: bold;
+        color:white;
+        font-family: sans-serif;
+        padding: 10px;
+        position: absolute;
+        top: 35%;
+        bottom: 40%;
+        left: 5%;
+        right: 55%;
+        height: 20%;
+    }
+    .main {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+  }
+    .sign{
+        border-radius: 10px;
+        padding:10px;
+        text-align: center;
+        font-family: sans-serif;
+        background: white;
+        position: absolute;
+        margin: 0;
+        left: 65%;
+        right: 15%;
+        top: 30%;
+        height: 300px;
+        width: 20%;
+    }
+    .titlu{
+        color: black;
+        text-align: center;
+    }
+    .sign div{
+        display: block;
+        position: relative;
+        padding: 5px;
+        font-family: sans-serif;
+    }
+    .sign input[type=text], .sign input[type=password], .sign input[type=email]{
+        height: 30px; 
+        border: solid 2px gray;
+        border-radius: 5%;
+        color: gray; 
+        width: 70%;
+    }
+    .sign label{
+        font-size: 15px;
+    }
+  
+  } 
+  
