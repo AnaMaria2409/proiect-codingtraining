@@ -1,0 +1,114 @@
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html{
+    height: 100%;
+    margin: 0;
+    background-blend-mode: darken;
+    background-image: url("back2.jpg");
+    background-repeat: repeat;
+    background-size: cover;
+}
+ body{
+    height: 100%;
+    margin: 0;
+}
+header{
+    width: 100%;
+    height: 5%;
+    background: black;
+    position: fixed;
+}
+
+footer{
+   background: black;
+   height: 5%;
+   position: absolute;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   
+}
+
+.account{
+    width: 35%;
+    height: 70%;
+    position: relative;
+    left:35%;
+    top:15%;
+    right: 25%;
+    border-radius: 8%;
+    background: white;
+}
+
+.account div{
+    display: block;
+    width: 100%;
+    padding: 1.5%;
+    text-align: right;
+}
+
+.account div label{
+    font-weight: bold;
+    position: relative;
+    right: 15%;
+    font-size: 1.4vw;
+}
+
+.account input{
+    border: none;
+    border-radius: 10%;
+    background: rgb(216, 215, 211);
+    height: 15%;
+    width: 35%;
+    opacity: 50%;
+    position: relative;
+    right: 15%;
+    font-size: 20px;
+    text-align: center;
+}
+
+.avatarcls #choose{
+    display: block;
+    position: relative;
+    left:40%;
+    width: 30%;
+    background: white;
+    border-radius: 3%;
+    font-size: 1.1vw;
+}
+
+.avatarcls{
+    position: relative;
+    top:2%;
+}
+
+#avatar{
+    border-radius: 200%;
+    width: 40%;
+    height: 40%;
+    display: block;
+    position: relative;
+    left: 35%;
+}
+
+@media only screen and (max-width:768px){
+    .account{
+        height: 50%;
+        width: 60%;
+        left: 20%;
+        top: 25%;
+    }
+
+    .account div label{
+        font-size:1vw;
+        right: 25%;
+    }
+    .account input{
+        height: 17px;
+        right: 20%;
+        font-size: 15px;
+    }
+}
