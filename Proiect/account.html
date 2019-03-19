@@ -10,35 +10,47 @@
 <body>
     <header>
     </header>
-    <div class="account">
+    
+    <div class=account>
+
         <div class="avatarcls">
-            <img src="avatar.png" id="avatar" alt="image">
-            <input type="file" id="choose" >
+            <img src="poza.png" id="avatar" alt="image" onclick="" >
         </div>
-        <div>
-            <label for="name">Name:</label>
+
+
+        <div class="info">
+            <h3>DATELE CONTULUI</h3>
+           
+            <label for="name">Nume si prenume:</label>
             <input type="text" id="name">
-        </div>
-        <div>
+           
             <label for="username">Username:</label>
             <input type="text" id="username">
-        </div>
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="pass">
-        </div>
-        <div>
-            <label for="newpass">New password:</label>
-            <input type="password" id="newpass">
-        </div>
-        <div>
+           
+            <label for="mail">Email:</label>
+            <input type="email" id="mail">
+           
             <label for="answerno">Probleme rezolvate:</label>
             <input type="number" id="answerno" readonly value="13">
-        </div>
-        <div>
+           
             <label for="questionno">Probleme adaugate:</label>
             <input type="number" id="questionno" readonly value="20">
         </div>
-    </div>
+        
+        <div class="parola">
+            <h3>ACTUALIZEAZA PAROLA</h3>
+            <label for="password">Password:</label>
+            <input type="password" id="pass">
+        
+            <label for="newpass">New password:</label>
+            <input type="password" id="newpass">
+
+            <label for="retypepass">Retype password:</label>
+            <input type="password" id="retypepass">
+
+            <input type="submit" value="RESETEAZA" class="btn">
+        </div>
+
+        </div>
     <footer></footer>
 </body>
