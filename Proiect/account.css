@@ -6,33 +6,27 @@
 html{
     height: 100%;
     margin: 0;
-
+    background-blend-mode: darken;
+    background-image: url("back2.jpg");
+    background-repeat: repeat;
+    background-size: cover;
 }
  body{
     height: 100%;
     margin: 0;
 }
 
+
 header{
     width: 100%;
     height: 5%;
     background: black;
-    position: fixed;
-}
-
-footer{
-   height: 5%;
-    background-color: black;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
 }
 
 
 .account{
-    
-    height: 90%;
+    border-radius: 15px;
+    height: auto;
     width: 40%;
     position: relative;
     top:5%;
@@ -41,33 +35,37 @@ footer{
     right: 30%;
     font-size: 2vh;
     color: gray;
+    border: solid 5px gray;
+    background: white;
+    padding: 5px;
 }
-
 
 .info{
     width: 80%;
-    height: 44%;
+    height: 80%;
     display: block;
     border-radius: 5px;
     position: relative;
     left: 10%;
     right: 10%;
     background: #efefef;
-    border:solid 1px #e0e0e0;
+    border:solid 1px rgb(139, 139, 139);
     margin:1%;
+    padding: 5px;
 }
 
 .parola{
     width: 80%;
-    height: 33%;
+    height: 30%;
     display: block;
     border-radius: 5px;
     position: relative;
    left: 10%;
    right: 10%;
    background: #efefef;
-   border: solid 1px #e0e0e0;
+   border: solid 1px rgb(139, 139, 139);
    margin: 1%;
+   padding: 5px;
 }
 
 .avatarcls{
@@ -79,7 +77,6 @@ footer{
     right: 25%;
 }
 
-
 h3, label, input{
     display: block;
     padding: 1%;
@@ -90,8 +87,10 @@ input{
     width: 99%;
     border: solid 1px #e0e0e0;
     border-radius: 5px;
-    height:8%;
+    height:auto;
+    font-size: 20px;
 }
+
 input:hover{
     border:solid 2px rgb(197, 197, 197);
 }
@@ -112,11 +111,10 @@ h3{
 
 #avatar{
     border-radius: 50%;
-    width: 60%;
-    height: 90%;
+    width: 50%;
+    height: 85%;
     position: relative;
     left: 20%;
-    top:3%;
 }
 
 #questionno, #answerno{
@@ -140,7 +138,9 @@ h3{
         left: 20%;
         right: 20%;
     }
-
+    input{
+        font-size: 12px;
+    }
     #questionno, #answerno{
         font-size: 10px;
     }
