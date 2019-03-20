@@ -63,7 +63,7 @@ body{
     transform:translate(-50%);
 }
 #question-statement p{
-    color:white;
+    color:black;
     font-size:180%;
     font-weight: bold;
     margin-top: 0px;
@@ -81,7 +81,7 @@ body{
     transform:translate(-50%);
 }
 #question-description p{
-    color:white;
+    color:black;
     font-size:180%;
     font-weight: bold;
 }
