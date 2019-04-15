@@ -1,0 +1,204 @@
+/login post token
+/register post username password
+
+/questionAnswered get id
+/questionOwned get id
+
+/questions
+/questionOwned get username
+/questionAnswered get username
+
+/answerQuestion post id answer
+
+
+
+/questions:
+  description: Collection of available questions in CodingTraining
+  get:
+    description: Get a list of questions .
+    category:php,java,html.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "questions": [
+                  {
+                    "questionId": "0",
+                    "continut": "how many ..................."
+                  },
+                   {
+                    "questionId": "1",
+                    "continut": "how many ..................."
+                  },
+                   {
+                    "questionId": "2",
+                    "continut": "how many ..................."
+                  }
+                ]
+              }
+/login:
+    description:"Returns a token if username and password are valide ."
+    parameters:username,password
+    post:
+    response:
+    200:(if username and password are correct)
+    body:
+          application/json:
+            example: |
+              {
+                "token": 
+                  {
+                    "content": "sdfhdsuif189231hddjkhfuy2378r3uidshfu",
+                  }
+    401:(if username and password are incorrect)
+        body:
+          application/json:
+            example: |
+              {
+                "token": 
+                  {
+                    "content": "unauthorized",
+                  }
+/register:
+    description:"Returns a token if username and password are valide ."
+    parameters:username,password
+    post:
+    response:
+    200:(if username doesn't exist ;) )
+    body:
+          application/json:
+            example: |
+              {
+                "token": 
+                  {
+                    "content": "sdfhdsuif189231hddjkhfuy2378r3uidshfu",
+                  }
+    401:(otherwise)
+    application/json:
+        body:
+          application/json:
+            example: |
+              {
+                "token": 
+                  {
+                    "content": "unauthorized",
+                  }
+/answerToQuestion:
+    description:"Responde to question"
+    parameters:questionId,questionAnswer,token
+    get:
+    response:
+    200:
+    body:(token is ok )
+    application/json:
+            example: |
+              {
+                "response": 
+                  {
+                    "content": "OK !!",
+                  }
+    401: body:
+          application/json:
+            example: |
+              {
+                "response": 
+                  {
+                    "content": "token is not ok",
+                  }
+/questionsOwned:
+    description:"Returns all the ownen questions ids"
+    parameters:token
+    get:
+    response:
+    200:
+    body:(token is ok )
+    application/json:
+            example: |
+              {
+                "questions": 
+                  {
+                    "id":"id",
+                    "question content": "how many...",
+                  }
+    401: body:
+          application/json:
+            example: |
+              {
+                "response": 
+                  {
+                    "content": "token is not ok",
+                  }
+/questionsSolved:
+    description:"Returns all the solved questions ids"
+    parameters:token
+    get:
+    response:
+    200:
+    body:(token is ok )
+    application/json:
+            example: |
+              {
+                "questions": 
+                  {
+                    "id":"id",
+                    "question content": "how many...",
+                    "feedback":"partial corect/ corect /incorect "
+                  }
+    401: body:
+          application/json:
+            example: |
+              {
+                "response": 
+                  {
+                    "content": "token is not ok",
+                  }
+
+/answerstoquestionOwned:
+description:"Returns all the answers to a specifique question"
+    parameters:token,id
+    get:
+    response:
+    200:
+    body:(token is ok )
+    application/json:
+            example: |
+              {
+                "answers": 
+                  {
+                    id:"id",                    
+                    username:"username",
+                    "questionanswer": "i think ...",
+                  }
+    401: body:
+          application/json:
+            example: |
+              {
+                "response": 
+                  {
+                    "content": "token is not ok/question is not yours",
+                  }
+/evaluateAnswer:
+description:"Evaluate the answer"
+    parameters:token,id,feedback,validitate
+    post:
+    response:
+    200:
+    body:(token is ok )
+    application/json:
+            example: |
+              {
+                "content": 
+                  {
+                   response:"ok";
+                  }
+    401: body:
+          application/json:
+            example: |
+              {
+                "response": 
+                  {
+                    "content": "token is not ok/question is not yours",
+                  }
+
