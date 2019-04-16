@@ -1,22 +1,84 @@
-/login post token
-/register post username password
 
-/questionAnswered get id
-/questionOwned get id
+/login:
+    description: Returns a Json Web Token if username and password are valid
+    post: 
+    description: Create a new token
+      queryParameters:
+        username:
+          description: The username of an exitsting user
+          example: jhon.doe 
+          required: true
+          type: string
+          password:
+          description: The the encoded password for the username
+          example: aasdssf==
+          required: true
+          type: string
+    response:
+    200:
+    body:
+          application/json:
+            example: |
+              {
+                "token": "sdfhdsuif189231hddjkhfuy2378r3uidshfu"
+             }
+    401:
+        body:
+          application/json:
+            example: |
+                  {
+                    "message": "Username incorrect or already exists!"
+                  }
 
-/questions
-/questionOwned get username
-/questionAnswered get username
-
-/answerQuestion post id answer
+/register:
+    description: Add a new user in database and returns a token if username and password are valid
+    get:
+    description: Get a confirmation message
+    response:
+    200:
+    body:
+          application/json:
+            example: |
+              {
+                "token": "Account successfully created!",
+              }
+    post:
+     description: Create a new token
+      queryParameters:
+        username:
+          description: The username of an exitsting user
+          example: jhon.doe 
+          required: true
+          type: string
+          password:
+          description: The the encoded password for the username
+          example: aasdssf==
+          required: true
+          type: string
+    response:
+    200:
+    body:
+          application/json:
+            example: |
+              {
+                "token": "sdfhdsuif189231hddjkhfuy2378r3uidshfu", 
+              }
+    401:
+    application/json:
+        body:
+          application/json:
+            example: |
+              {
+                 "message": "Can't create the account!"
+              }
 
 
 
 /questions:
-  description: Collection of available questions in CodingTraining
+  description: Collection of all questions in CodingTraining.
   get:
-    description: Get a list of questions .
-    category:php,java,html.
+    description: Get a list of questions.
+    category:php, java, HTML, javascript, C.
     responses:
       200:
         body:
@@ -26,151 +88,144 @@
                 "questions": [
                   {
                     "questionId": "0",
-                    "continut": "how many ..................."
+                    "continut": "How many bits have an Integer?",
+                    "categorie": "C",
+                    "dificultate":"usor",
+                    "vizualizari":"14",
+                    "scor":"5".
                   },
                    {
                     "questionId": "1",
-                    "continut": "how many ..................."
-                  },
-                   {
-                    "questionId": "2",
-                    "continut": "how many ..................."
+                    "continut": "Which is the filed for a button?"
+                    "categorie": "HTML",
+                    "dificultate":"intermediar",
+                    "vizualizari":"9",
+                    "scor":"4.2".
                   }
                 ]
               }
-/login:
-    description:"Returns a token if username and password are valide ."
-    parameters:username,password
-    post:
-    response:
-    200:(if username and password are correct)
-    body:
-          application/json:
-            example: |
-              {
-                "token": 
-                  {
-                    "content": "sdfhdsuif189231hddjkhfuy2378r3uidshfu",
-                  }
-    401:(if username and password are incorrect)
-        body:
-          application/json:
-            example: |
-              {
-                "token": 
-                  {
-                    "content": "unauthorized",
-                  }
-/register:
-    description:"Returns a token if username and password are valide ."
-    parameters:username,password
-    post:
-    response:
-    200:(if username doesn't exist ;) )
-    body:
-          application/json:
-            example: |
-              {
-                "token": 
-                  {
-                    "content": "sdfhdsuif189231hddjkhfuy2378r3uidshfu",
-                  }
-    401:(otherwise)
-    application/json:
-        body:
-          application/json:
-            example: |
-              {
-                "token": 
-                  {
-                    "content": "unauthorized",
-                  }
+
+
 /answerToQuestion:
-    description:"Responde to question"
-    parameters:questionId,questionAnswer,token
-    get:
+    description: Return a message if the answer of a question was added correct
+    post: 
+     description: Add the answer of an user at a question
+     queryParameters:
+        questionID:
+          description: The order number of question in database
+          example: 3 
+          required: true
+          type: integer
+        questionAnswer:
+          description: The content of answer
+          example: The tag is <br/>
+          required: true
+          type: string
+        access_token:
+          description: The access token provided by the authentication application
+          example: ALDFD 
+          required: true
+          type: string
     response:
     200:
-    body:(token is ok )
+    body:
     application/json:
             example: |
               {
-                "response": 
-                  {
-                    "content": "OK !!",
-                  }
-    401: body:
+                "response":  "The answer was added!",
+              }
+    401:
+     body:
           application/json:
             example: |
               {
-                "response": 
-                  {
-                    "content": "token is not ok",
-                  }
+                  "message": "Can't add the answer!"
+              }
+               
 /questionsOwned:
-    description:"Returns all the ownen questions ids"
-    parameters:token
+    description: Collection of all the questions that an user own
     get:
+    description: Get a list of owned questions.
+    queryParameters:
+      access_token:
+          description: The access token provided by the authentication application
+          example: ALDFD 
+          required: true
+          type: string
     response:
     200:
-    body:(token is ok )
+    body:
     application/json:
             example: |
-              {
-                "questions": 
+              { 
+                  "questions": 
                   {
-                    "id":"id",
-                    "question content": "how many...",
+                    "questionId": "1",
+                    "continut": "How many bits have an Integer?",
+                    "categorie": "C",
+                    "dificultate":"usor",
+                    "vizualizari":"14",
+                    "scor":"5".
                   }
-    401: body:
-          application/json:
-            example: |
-              {
-                "response": 
-                  {
-                    "content": "token is not ok",
-                  }
+              }
+
 /questionsSolved:
-    description:"Returns all the solved questions ids"
-    parameters:token
+    description: Collection of all the questions that a user has answered.
     get:
+     description: Get a list of answered questions.
+     queryParameters:
+      access_token:
+          description: The access token provided by the authentication application
+          example: ALDFD 
+          required: true
+          type: string
     response:
     200:
-    body:(token is ok )
+    body:
     application/json:
             example: |
               {
                 "questions": 
                   {
-                    "id":"id",
-                    "question content": "how many...",
-                    "feedback":"partial corect/ corect /incorect "
+                    "questionId": "1",
+                    "continut": "How many bits have an Integer?",
+                    "categorie": "C",
+                    "dificultate":"usor",
+                    "vizualizari":"14",
+                    "scor":"5",
+                    "coninutfeedback":"Your answered is awesome",
+                    "validitate":"correct"
                   }
-    401: body:
-          application/json:
-            example: |
-              {
-                "response": 
-                  {
-                    "content": "token is not ok",
-                  }
+              }
 
 /answerstoquestionOwned:
-description:"Returns all the answers to a specifique question"
-    parameters:token,id
+    description: Collection of all the answers of a specifique question
     get:
+      description: Get a list of answeres.
+      queryParameters:
+        access_token:
+          description: The access token provided by the authentication application
+          example: ALDFD 
+          required: true
+          type: string
+        questionID:
+          description: The order number of question in database
+          example: 3 
+          required: true
+          type: integer
     response:
     200:
-    body:(token is ok )
+    body:
     application/json:
             example: |
               {
                 "answers": 
                   {
-                    id:"id",                    
-                    username:"username",
-                    "questionanswer": "i think ...",
+                    "id":"1",                    
+                    "username":"jhon.doe",
+                    "answer": "The answer si <input type="button">"
                   }
+                }
     401: body:
           application/json:
             example: |
@@ -179,26 +234,41 @@ description:"Returns all the answers to a specifique question"
                   {
                     "content": "token is not ok/question is not yours",
                   }
+              }
+
 /evaluateAnswer:
-description:"Evaluate the answer"
-    parameters:token,id,feedback,validitate
-    post:
+    description: Add an evaluation to an answer
+    parameters:token,id,feedback,validitat
+    post: 
+    description: Create a feedback
+      queryParameters:
+          access_token:
+          description: The access token provided by the authentication application
+          example: ALDFD 
+          required: true
+          type: string
+        answerID:
+          description: The order number of question in database
+          example: 3 
+          required: true
+          type: integer
+        feedback:
+          description: The user message
+          example: You have a little mistake
+          required: true
+          type: string
+        validitate:
+          description: A mark for the answer
+          example: Incorrect
+          required: true
+          type: string
     response:
     200:
-    body:(token is ok )
+    body:
     application/json:
             example: |
               {
-                "content": 
-                  {
-                   response:"ok";
-                  }
-    401: body:
-          application/json:
-            example: |
-              {
-                "response": 
-                  {
-                    "content": "token is not ok/question is not yours",
-                  }
+                   response:"The feedback was added!";
+              }
+  
 
