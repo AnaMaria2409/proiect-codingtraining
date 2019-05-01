@@ -1,0 +1,218 @@
+body,html{
+    height:100%;
+    position:relative;
+    height:auto;
+    margin:0;
+    font-size:15px;
+    background-blend-mode: darken;
+    background-image: url("back2.jpg");
+    background-repeat: repeat;
+    background-size: cover;
+}
+body{
+    font-family:sans-serif;
+}
+/* .navBar{
+    width:100%;
+    height:5%;
+    display: block;
+    
+    margin-bottom:20px;
+    margin-left:0px;
+    position: sticky;
+    top: 0;
+    background-color: #f8f8f8;
+    z-index:0;
+    }
+   
+    .navBar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+    .navBar li {
+      float: left;
+    }
+   
+    .navBar li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+   
+    .navBar li a:hover:not(.active) {
+      background-color: #111;
+    }
+   
+    .navBar .active {
+      background-color: #2374dd;
+    } */
+
+.menu{
+    min-width:15%;
+    min-height:100%;
+    background-color:black;
+    display:inline-block;
+    margin-right:0;
+    position:absolute;
+    left:-14.99%;
+    transition: all 0.5s ease-in-out;
+    z-index:1;
+}
+.content{
+    width:100%;
+    display:inline-block;
+    margin-left:0;
+    transition: all 0.5s ease-in-out;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-content: space-between;
+    flex-grow: 2;
+    z-index: -1; 
+}
+.question-container{
+    height:auto;
+    width:500px;
+    margin:auto;
+    padding: 0px 10px 10px 10px;
+    margin-top:60px;
+    margin-bottom:30px;
+    margin-left:20px;
+    margin-right:20px;
+    position:relative;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: 0.5s all ease;
+}
+.menu:hover{
+    left:0;
+}
+.menu:hover ~ .content{
+    margin-left:15%;
+    width:85%;
+}
+#swipe{
+    display:inline-block;
+    position:absolute;
+    left:8px;
+    transition: all 0.5s ease-in-out;
+    position:sticky;
+    top:5px; 
+}
+.menu:hover ~ #swipe img{
+    transform:rotate(180deg);
+}
+.menu:hover ~ #swipe{
+    left:15%;
+}
+ #swipe img{
+    width:40px;
+    top:10px;
+    left:200px;
+    transition: all 0.5s ease-in-out;
+}
+.difficulty-tag{
+    width:120px;
+    height:30px;
+    position:absolute;
+    top:-20px;
+    right:0px;
+    border-radius:10px;
+}
+.question-container:hover{
+    transform:scale(1.05,1.05);
+}
+.menu ul{
+    color:white;
+    list-style:none;
+    font-size:130%;
+    padding:0px; 
+    position:sticky;
+    left:15px;
+    top:20px;
+}
+.menu li{
+    text-align: center;
+}
+.menu li:nth-of-type(1n+2){
+    margin-top:20px;
+}
+.check{
+    display:inline-block;
+    position:absolute;
+    top:-30px;
+    left:0px;
+}
+.check img{
+    width:30px;
+    height:30px;
+    vertical-align: middle;
+}
+.view{
+    display:inline-block;
+    position:absolute;
+    top:-30px;
+    left:65px;
+}
+.view img{
+    width:30px;
+    height:30px;
+    vertical-align: middle;
+}
+.star{
+    display:inline-block;
+    position:absolute;
+    top:-28px;
+    left:130px;
+}
+.star img{
+    width:25px;
+    
+    vertical-align: middle;
+}
+.live{
+    display:inline-block;
+    position:absolute;
+    bottom:-32px;
+    left:200px;
+}
+.author{
+    display:inline-block;
+    position:absolute;
+    bottom:-25px;
+    right:0px;
+    font-size:80%;
+}
+.author img{
+    
+    width:30px;
+    height:30px;
+    position:relative;
+    top:10px;
+}
+
+span{
+    color: white;
+}
+
+@media screen and (max-width: 1000px){
+    .menu{
+        width:150px;    
+    }
+    
+    .menu{
+        left:-149px;
+    }
+    .menu:hover ~ #swipe{
+        left:153px;
+    }
+}
+@media screen and (max-width:730px){
+    .menu:hover{
+        width:100%;
+    } 
+}
