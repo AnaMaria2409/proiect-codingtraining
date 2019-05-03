@@ -233,8 +233,33 @@ span{
  .menu:hover ~ .content .header{
     left:15%;      
 }
+.menu:hover ~ .content .header ul{
+    margin-left: -20%;
+}
 .header ul {
-    
+    padding-top:2px;
+    list-style-type: none;
+    text-align:center;
+    transition: all 0.8s ease-in-out;
+}
+.header li{
+    display:inline;
+    margin-right:1%;
+}
+
+.header ul li a{
+    text-decoration: none;
+    color: white;
+    border:1px solid white;
+    padding: 13px;
+    transition: all 0.2s ease-in-out;
+}
+.header ul li:hover > a{
+    color:grey
+}
+.question-container a{
+    text-decoration: none;
+    color: black;
 }
 @media screen and (max-width: 1000px){
     .menu{
@@ -248,6 +273,9 @@ span{
     }
     .menu:hover ~ .content .header{
         left:150px;      
+    }
+    .menu:hover ~ .content .header ul{
+        margin-left: -20%;
     }
 }
 @media screen and (max-width:730px){
