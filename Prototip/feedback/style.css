@@ -193,10 +193,13 @@ body,html{
     display:block;
     margin-top:10px;
     transition: all 0.2s ease-in-out;
-
+    opacity: 0.45;
 }
 .rating img:hover{
     transform:scale(1.2,1.2);
+}
+.rating input{
+    display:none;
 }
 @media screen and (max-width: 530px){
     .question-container{

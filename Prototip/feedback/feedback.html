@@ -57,12 +57,45 @@
             <textarea name="feedback">Leave your feedback !</textarea>
             <input type="button" name="submit" value = "Submit">
         </form>
+        <script language="JavaScript">
+            function multiCheckTest(){
+                var count = 0;
+                var cb1 = document.getElementById("checkbox+2");
+                var cb2 = document.getElementById("checkbox+1");
+                var cb3 = document.getElementById("checkbox0");
+                var cb4 = document.getElementById("checkbox-1");
+                var cb5 = document.getElementById("checkbox-2");
+                if(cb1.checked == true) count++;
+                if(cb2.checked == true) count++;
+                if(cb3.checked == true) count++;
+                if(cb4.checked == true) count++;
+                if(cb5.checked == true) count++;
+                return count;
+            }
+            function changeState(clicked_id){
+                var cb = "checkbox";
+                if(multiCheckTest()==0 && document.getElementById(clicked_id).style.opacity<=0.45){
+                    document.getElementById(cb.concat(clicked_id)).checked = true;
+                    document.getElementById(clicked_id).style.opacity="1";
+                }else{
+                    document.getElementById(cb.concat(clicked_id)).checked = false;
+                    document.getElementById(clicked_id).style.opacity="0.45";
+                }
+            }
+            
+        </script>
         <div class="rating"> 
-            <img id="+2" src="+2.png" alt="very good">
-            <img id="+1" src="+1.png" alt="good">
-            <img id="0" src="0.png" alt="decent">
-            <img id="-1" src="-1.png" alt="bad">
-            <img id="-2" src="-2.png" alt="very bad">
+            <img id="+2" src="+2.png" alt="very good" onclick="changeState(this.id)">
+            <input type="checkbox" name="checkbox+2" id="checkbox+2">
+            <img id="+1" src="+1.png" alt="good" onclick="changeState(this.id)">
+            <input type="checkbox" name="checkbox+1" id="checkbox+1">
+            <img id="0" src="0.png" alt="decent" onclick="changeState(this.id)">
+            <input type="checkbox" name="checkbox0" id="checkbox0">
+            <img id="-1" src="-1.png" alt="bad" onclick="changeState(this.id)">
+            <input type="checkbox" name="checkbox-1" id="checkbox-1">
+            <img id="-2" src="-2.png" alt="very bad" onclick="changeState(this.id)">
+            <input type="checkbox" name="checkbox-2" id="checkbox-2">
+
         </div>
     </div>
     
