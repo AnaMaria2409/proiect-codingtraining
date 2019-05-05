@@ -19,33 +19,43 @@ else header("Location: ../paginalogare/paginalogare.php");
 <body>
     <header class="navBar">
         <ul>
-            <li><a class="active" href="../../Alexandru Denis/home page/index.html">Home</a></li>
-            <li><a href="../../Proiect/account.html">My Account</a></li>
-            <li><a href="../../Proiect/paginalogare.html">Sign out</a></li>
+            <li><a class="active" href="../homepage/index.php">Home</a></li>
+  <li><a href="../account/account.php">My Account</a></li>
+  <li><a href="../paginalogare/logout.php">Sign out</a></li>
         </ul>
     </header>
 
     <div id="container">  
+        <form action="addquestion.php" method="POST">
         <div id="difficulty">
-            <img src="easy.png" alt="easy icon">
-            <img src="medium.png" alt="medium icon">
-            <img src="hard.png" alt="hard icon">
+            <p class="text"><b>Difficulty:</b></p>
+            <select class="select" name="difficulty">
+            <option>Easy</option>
+            <option>Medium</option>
+            <option>Hard</option>
+            </select>
         </div>
+    
         <div id="exercise-type">
-                <img src="html.png" alt="html icon">
-                <img src="css.png" alt="css icon">
-                <img src="php.svg" alt="php icon">
-                <img src="javascript.png" alt="javscript icon">
+            <p class="text"><b>Type:</b></p>
+             <select class="select" name="category">
+              <option>HTML</option>
+              <option>CSS</option>
+              <option>JAVA</option>
+              <option>PHP</option>
+             </select>
         </div>
         <div id="question-statement">
             <p>Write your question:</p>
-            <textarea></textarea>
+            <textarea name="question"></textarea>
         </div>
         <div id="question-description">
-                <p>Describe your question:</p>
-                <textarea></textarea>
+                <p>Describe your solution:</p>
+                <textarea name="solution"></textarea>
         </div>
-        <button>SEND</button>
+    
+        <input type="submit" class="button" value="SEND">
+        </form>
     </div>
 </body>
 </html>

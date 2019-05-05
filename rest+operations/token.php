@@ -1,5 +1,5 @@
 <?php
-include "dboperations.php";
+require_once "dboperations.php";
 class token{
 public $db;
 function __construct(){

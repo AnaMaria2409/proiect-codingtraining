@@ -1,15 +1,27 @@
 <?php
-include "../token.php";
+require_once "../operation.php";
+require_once "../token.php";
+global $token;
 $token=new token();
 if(isset($_COOKIE["token"]) and $token->vtoken($_COOKIE["token"])){
-  
+    
 }
 else header("Location: ../paginalogare/paginalogare.php");
+global $questions;
+$db=new operation($_COOKIE["token"]);
+if(isset($_GET["type"]))
+$type=$_GET["type"];
+else $type="";
+if(isset($_GET["owned"]) and $_GET["owned"]=="true")
+$questions=$db->getallownedquestions($type);
+else if(isset($_GET["owned"]) and $_GET["owned"]=="false")
+    $questions=$db->getallansweredquestions($type);
+else $questions=$db->getunansweredquestions($type);
+
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,171 +37,63 @@ else header("Location: ../paginalogare/paginalogare.php");
         </ul> 
     </header> -->  
     <div class="menu">
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>PHP</li>
-            <li>JAVASCRIPT</li>       
-        </ul>
+        <form method="post" action="" id="categories">
+            <a href="?type=HTML"><input type="button" name="html button" value = "HTML"></a>
+            <a href="?type=CSS"><input type="button" name="css button" value = "CSS"></a>
+            <a href="?type=PHP"><input type="button" name="php button" value = "PHP"></a>
+            <a href="?type=JAVA"><input type="button" name="javscript button" value = "JAVASCRIPT"></a>
+        </form>
+        <form method="post" action="" id="type">
+              <a href="?owned=false"><input type="button" name="html button" value = "Answered questions"></a>
+            <a href="?owned=true"><input type="button" name="css button" value = "Added questions"></a>
+        </form>
     </div>
     
     <div id="swipe">
             <img src="menu-button.png" alt="menu button" id="menuBtn">
     </div>
     <div class="content">
-        
-        <div class="question-container">
-            <div class="check">
-                <img src="check.png" alt="check image">
-                <span>10</span>
+        <header class="header">
+            <ul>
+                <li><a class="active" href="../homepage/index.php">Home</a></li>
+                <li><a href="../account/account.php">My Account</a></li>
+                <li><a href="../paginalogare/logout.php">Sign out</a></li>
+             </ul>
+        </header>
+        <?php
+foreach($questions as $question){
+    $rezolvari=$rating=$question["scor"];
+    $vizualizari=$question["vizualizare"];
+    $intrebare=$question["continut"];
+    $id=$question["id"];
+    $autor=$token->db->getNameFromId($question["id_user"]);
+    $dificultate=$question["dificultate"];
+    echo "<div class='question-container'><a href='../answer/answer.php?id={$id}'>
+            <div class='check'>
+                <img src='check.png' alt='check image'>
+                <span>{$rezolvari}</span>
             </div>
-            <div class="view">
-                <img src="view.png" alt="view image">
-                <span>45</span>
+            <div class='view'>
+                <img src='view.png' alt='view image'>
+                <span>{$vizualizari}</span>
             </div>
-            <div class="star">
-                <img src="star.png" alt="star image">
-                <span>8</span>
+            <div class='star'>
+                <img src='star.png' alt='star image'>
+                <span>{$rating}</span>
             </div>
-            <img src="easy.png" alt="easy tag" class="difficulty-tag">
+            <img src='{$dificultate}.png' alt='{$dificultate} tag' class='difficulty-tag'>
             <p>
-                Write the CSS needed to add the look and interaction found here. I'm giving you the HTML below. You can add classes and id's to the elements, if you feel the need, but otherwise don't modify the structure.
-                There's also a little JavaScript there which adds the is--open class to the div class="menu" element when you click the button. It also removes this class if you press the Esc key. So when this class is present show the menu, otherwise it should be hidden.
-                PS: don't worry about the JS code, it's ok if you don't understand it.
-                PPS: you will need to use CSS transitions for the menu. Also flex would work wonders for the header.
+                {$intrebare}
             </p>
-            <div class="author">
-                <img src="live.png" alt="live image">
-                <span>AuthorName</span>
-            </div>
-        </div>
-        <div class="question-container">
-                <div class="check">
-                    <img src="check.png" alt="check image">
-                    <span>14</span>
-                </div>
-                <div class="view">
-                    <img src="view.png" alt="check image">
-                    <span>75</span>
-                </div>
-                <div class="star">
-                    <img src="star.png" alt="star image">
-                    <span>2</span>
-                </div>
-                <img src="medium.png" alt="medium tag" class="difficulty-tag">
-                <p>
-                    Write the CSS needed to add the look and interaction found here. I'm giving you the HTML below. You can add classes and id's to the elements, if you feel the need, but otherwise don't modify the structure.
-                    There's also a little JavaScript there which adds the is--open class to the div class="menu" element when you click the button. It also removes this class if you press the Esc key. So when this class is present show the menu, otherwise it should be hidden.
-                    PS: don't worry about the JS code, it's ok if you don't understand it.
-                    PPS: you will need to use CSS transitions for the menu. Also flex would work wonders for the header.
-                </p>
-                <div class="author">
-                <img src="live_off.png" alt="live image">
-                <span>AuthorName</span>
-                </div>
-        </div>
-        <div class="question-container">
-                <div class="check">
-                    <img src="check.png" alt="check image">
-                    <span>21</span>
-                </div>
-                <div class="view">
-                    <img src="view.png" alt="check image">
-                    <span>35</span>
-                </div>
-                <div class="star">
-                    <img src="star.png" alt="star image">
-                    <span>7</span>
-                </div>
+            <div class='author'>
                 
-                <img src="hard.png" alt="hard tag" class="difficulty-tag">
-                <p>
-                    Write the CSS needed to add the look and interaction found here. I'm giving you the HTML below. You can add classes and id's to the elements, if you feel the need, but otherwise don't modify the structure.
-                    There's also a little JavaScript there which adds the is--open class to the div class="menu" element when you click the button. It also removes this class if you press the Esc key. So when this class is present show the menu, otherwise it should be hidden.
-                    PS: don't worry about the JS code, it's ok if you don't understand it.
-                    PPS: you will need to use CSS transitions for the menu. Also flex would work wonders for the header.
-                </p>
-                <div class="author">
-                <img src="live_off.png" alt="live image">
-                <span>AuthorName</span>
-                </div>
-        </div>
-        <div class="question-container">
-                <div class="check">
-                    <img src="check.png" alt="check image">
-                    <span>6</span>
-                </div>
-                <div class="view">
-                    <img src="view.png" alt="check image">
-                    <span>32</span>
-                </div>
-                <div class="star">
-                    <img src="star.png" alt="star image">
-                    <span>3</span>
-                </div>
-                <img src="medium.png" alt="medium tag" class="difficulty-tag">
-                <p>
-                    Write the CSS needed to add the look and interaction found here. I'm giving you the HTML below. You can add classes and id's to the elements, if you feel the need, but otherwise don't modify the structure.
-                There's also a little JavaScript there which adds the is--open class to the div class="menu" element when you click the button. It also removes this class if you press the Esc key. So when this class is present show the menu, otherwise it should be hidden.
-                PS: don't worry about the JS code, it's ok if you don't understand it.
-                PPS: you will need to use CSS transitions for the menu. Also flex would work wonders for the header.
-                </p>
-                <div class="author">
-                <img src="live.png" alt="live image">
-                <span>AuthorName</span>
-                </div>
-        </div>
-        <div class="question-container">
-                <div class="check">
-                    <img src="check.png" alt="check image">
-                    <span>13</span>
-                </div>
-                <div class="view">
-                    <img src="view.png" alt="check image">
-                    <span>51</span>
-                </div>
-                <div class="star">
-                    <img src="star.png" alt="star image">
-                    <span>8</span>
-                </div>
-                <img src="hard.png" alt="hard tag" class="difficulty-tag">
-                <p>
-                    Write the CSS needed to add the look and interaction found here. I'm giving you the HTML below. You can add classes and id's to the elements, if you feel the need, but otherwise don't modify the structure.
-                    There's also a little JavaScript there which adds the is--open class to the div class="menu" element when you click the button. It also removes this class if you press the Esc key. So when this class is present show the menu, otherwise it should be hidden.
-                    PS: don't worry about the JS code, it's ok if you don't understand it.
-                    PPS: you will need to use CSS transitions for the menu. Also flex would work wonders for the header.
-                </p>
-                <div class="author">
-                <img src="live_off.png" alt="live image">
-                <span>AuthorName</span>
-                </div>
-        </div>
-        <div class="question-container">
-                <div class="check">
-                    <img src="check.png" alt="check image">
-                    <span>5</span>
-                </div>
-                <div class="view">
-                    <img src="view.png" alt="check image">
-                    <span>40</span>
-                </div>
-                <div class="star">
-                    <img src="star.png" alt="star image">
-                    <span>3</span>
-                </div>
-                <img src="easy.png" alt="easy tag" class="difficulty-tag">
-                <p>
-                    Write the CSS needed to add the look and interaction found here. I'm giving you the HTML below. You can add classes and id's to the elements, if you feel the need, but otherwise don't modify the structure.
-                There's also a little JavaScript there which adds the is--open class to the div class="menu" element when you click the button. It also removes this class if you press the Esc key. So when this class is present show the menu, otherwise it should be hidden.
-                PS: don't worry about the JS code, it's ok if you don't understand it.
-                PPS: you will need to use CSS transitions for the menu. Also flex would work wonders for the header.
-                </p>
-                <div class="author">
-                <img src="live_off.png" alt="live image">
-                <span>AuthorName</span>
-                </div>
-        </div>
-
+                <span>{$autor}</span>
+            </div>
+        </a></div>";
+}
+        ?>
+        
+        
     </div>
     <script>
         let menuBtn = document.getElementById('menuBtn');
@@ -205,5 +109,5 @@ else header("Location: ../paginalogare/paginalogare.php");
             }
         })
     </script>
-</body>
-</html>
+
+</body></html>

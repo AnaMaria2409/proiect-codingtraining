@@ -2,10 +2,10 @@ body{
     margin:0;
     background-image:url("background-image.jpg");
     background-size:cover;
+    
 }
 #container{
-    
-    height:610px;
+    height:99%;
     width:70%;
     position:absolute;
     left:50%;
@@ -16,90 +16,85 @@ body{
 }
 
 #difficulty{
+    top:5%;
     text-align: center;
     position:absolute;
-    left:50%;
+    left:25%;
     transform:translate(-50%);
     width:70%;
-    margin:auto;
-}
-#difficulty img{
-    height:30px;
-    width:130px;
-    margin:0px 15px 0px 15px;
-    transition: 0.3s all ease-in-out;
-    
-
-}#difficulty img:hover{
-    transform:scale(1.1,1.1);
-    
-}
-#exercise-type{
-    text-align: center;
-    position:absolute;
-    left:50%;
-    top:95px;
-    transform:translate(-50%);
-    width:70%;
-    padding-top:10px;
     margin:0;
-    width:90%;
 }
-#exercise-type img{
-    height:60px;
-    width:15%;
-    margin:20px 3% 0px 3%;
-    transition: 0.3s all ease-in-out;
+
+#exercise-type{
+    top:5%;
+    text-align: center;
+    position:absolute;
+    left:75%;
+    transform:translate(-50%);
+    margin:0;
+    width:70%;
 }
-#exercise-type img:hover{
-    transform:scale(1.1,1.1);
-}
+
 #question-statement{
     text-align: center;
     position:absolute;
     width:90%;
     left:50%;
-    top:210px;
+    top:30%;
+    height: 40%;
     transform:translate(-50%);
 }
 #question-statement p{
     color:black;
-    font-size:180%;
+    font-size:150%;
     font-weight: bold;
     margin-top: 0px;
+    margin-bottom: 10px;
+    height: 10%;
 }
 #question-statement textarea{
     width:100%;
-    height:110px;
+    height:65%;
+    border-radius: 4px;
 }
 #question-description{
     text-align: center;
     position:absolute;
     width:90%;
     left:50%;
-    top:390px;
+    top:60%;
+    height: 30%;
     transform:translate(-50%);
 }
 #question-description p{
     color:black;
-    font-size:180%;
+    font-size:150%;
     font-weight: bold;
+    height: 10%;
+    padding: 0;
+    margin-bottom:10px;
+    top:50%;
 }
 #question-description textarea{
     width:100%;
-    height:60px;
+    height:50%;
+    border-radius: 4px;
 }
 #container button{
-    background-color:black;
+    background-color: #333;
     border:0;
     color:white;
     font-size:120%;
+    font-family: 'Times New Roman', Times, serif;
     padding:10px 15px 10px 15px;
     position:absolute;
     left:50%;
-    top:580px;
+    top:90%;
     transform:translate(-50%);
+    border-radius: 4px;
 }
+#container button:hover{
+    background-color:black;}
 #menu{
     width:100%;
     height:60px;
@@ -156,6 +151,35 @@ body{
     .navBar .active {
       background-color: #2374dd;
     }
-@media screen and(max-width:500){
 
+   .select{
+    -webkit-appearance: button;
+    border-radius: 4px;
+    border: 1px solid #AAA;
+    color: #555;
+    font-size: inherit;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 20px;
+    overflow: hidden;
+    padding: 5px 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 45%;
+   } 
+   .select:hover{
+    background:rgb(209, 208, 208);
+   }
+   .text{
+       font-size: auto;
+   }
+@media only screen and (max-width: 767px) {
+    body{
+        background-blend-mode: darken;
+        background-image: url("back4.jpg");
+        background-repeat: repeat;
+        background-size: cover;
+        margin: 0;}
+
+        #question-statement p{font-size: 120%;}
+        #question-description p{font-size: 120%;}
 }

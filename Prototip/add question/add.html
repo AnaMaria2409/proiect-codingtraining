@@ -18,22 +18,29 @@
 
     <div id="container">  
         <div id="difficulty">
-            <img src="easy.png" alt="easy icon">
-            <img src="medium.png" alt="medium icon">
-            <img src="hard.png" alt="hard icon">
+            <p class="text"><b>Difficulty:</b></p>
+            <select class="select">
+            <option>Easy</option>
+            <option>Medium</option>
+            <option>Hard</option>
+            </select>
         </div>
+    
         <div id="exercise-type">
-                <img src="html.png" alt="html icon">
-                <img src="css.png" alt="css icon">
-                <img src="php.svg" alt="php icon">
-                <img src="javascript.png" alt="javscript icon">
+            <p class="text"><b>Type:</b></p>
+             <select class="select">
+              <option>HTML</option>
+              <option>CSS</option>
+              <option>Javascript</option>
+              <option>Php</option>
+             </select>
         </div>
         <div id="question-statement">
             <p>Write your question:</p>
             <textarea></textarea>
         </div>
         <div id="question-description">
-                <p>Describe your question:</p>
+                <p>Describe your solution:</p>
                 <textarea></textarea>
         </div>
         <button>SEND</button>

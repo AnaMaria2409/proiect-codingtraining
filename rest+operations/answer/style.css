@@ -98,6 +98,29 @@ font-size: 20px;
     font-family: Sans-Serif;
     padding-left: 5px;
 }
+.answer{
+    font-size: 15px;
+    color:black;
+    padding-bottom:5px;
+    border-bottom:2px solid #e6e9ed;
+    background-color: #fff;
+    
+    font-family: Sans-Serif;
+    padding-left: 5px;
+
+}
+
+.answer:hover{
+  border:2px solid red;
+  color:white;
+  background-color:black;
+}
+.congrat{
+  font-size:25px;
+  padding-bottom:15px;
+
+
+}
 .content{
      margin: auto;
     width: 60%;

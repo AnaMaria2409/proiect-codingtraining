@@ -84,6 +84,30 @@
 			}
 
 		}
+		public function checkAnswerExistence($id_user,$question_id){
+			$response=0;
+			$sql="SELECT id from raspunsuri where id_user='$id_user' and id_intrebare='$question_id'";
+			$sql2="SELECT id_user from intrebari where id='$question_id'";
+			
+			$result = mysqli_query($this->conn,$sql);
+			$result2=mysqli_query($this->conn,$sql2);
+
+			$resultCheck = mysqli_num_rows($result);
+			$resultCheck2 = mysqli_num_rows($result2);
+			
+			if($resultCheck>0){
+				while($row = mysqli_fetch_assoc($result)){
+					$response=1;
+				}
+			}
+			if($resultCheck2>0){
+				while($row = mysqli_fetch_assoc($result2)){
+					if($row['id_user']==$id_user)$response=2;
+				}
+			}
+
+			return $response;
+		}
 		public function counterAdded($token){
 			$id=$this->getIdFromToken($token);
 			$sql="SELECT * from intrebari where id_user='$id'";

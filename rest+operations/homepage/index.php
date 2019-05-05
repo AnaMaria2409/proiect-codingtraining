@@ -34,7 +34,7 @@ else header("Location: ../paginalogare/paginalogare.php");
     <div class="container" id="solve-question">
         <a href="../main question page/main.php">
         <img src="solve-question-image.png" alt="solve-question-image">
-        <p>Solve some questions</p>
+        <p>Questions</p>
         </a>
     </div>
     <div class="container" id="add-question">

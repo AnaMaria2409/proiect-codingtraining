@@ -14,9 +14,9 @@
 </head>
 <header class="navBar">
 <ul>
-   <li><a class="active" href="../home page/home.html">Home</a></li>
-   <li><a href="../account/account.html">My Account</a></li>
-   <li><a href="../paginalogare/paginalogare.html">Sign out</a></li>
+   <li><a class="active" href="../Alexandru Denis/home page/index.html">Home</a></li>
+   <li><a href="../Proiect/account.html">My Account</a></li>
+   <li><a href="../Proiect/paginalogare.html">Sign out</a></li>
 </ul>
 
 </header>
