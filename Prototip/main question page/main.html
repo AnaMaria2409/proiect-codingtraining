@@ -16,20 +16,30 @@
         </ul> 
     </header> -->  
     <div class="menu">
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>PHP</li>
-            <li>JAVASCRIPT</li>       
-        </ul>
+        <form method="post" action="" id="categories">
+            <a href=""><input type="button" name="html button" value = "HTML"></a>
+            <a href=""><input type="button" name="css button" value = "CSS"></a>
+            <a href=""><input type="button" name="php button" value = "PHP"></a>
+            <a href=""><input type="button" name="javscript button" value = "JAVASCRIPT"></a>
+        </form>
+        <form method="post" action="" id="type">
+            <a href=""><input type="button" name="html button" value = "Answered questions"></a>
+            <a href=""><input type="button" name="css button" value = "Added questions"></a>
+        </form>
     </div>
     
     <div id="swipe">
             <img src="menu-button.png" alt="menu button" id="menuBtn">
     </div>
     <div class="content">
-        
-        <div class="question-container">
+        <header class="header">
+            <ul>
+                <li><a class="active" href="../home page/home.html">Home</a></li>
+                <li><a href="../account/account.html">My Account</a></li>
+                <li><a href="../paginalogare/paginalogare.html">Sign out</a></li>
+             </ul>
+        </header>
+        <div class="question-container"><a href="">
             <div class="check">
                 <img src="check.png" alt="check image">
                 <span>10</span>
@@ -53,8 +63,8 @@
                 <img src="live.png" alt="live image">
                 <span>AuthorName</span>
             </div>
-        </div>
-        <div class="question-container">
+        </a></div>
+        <div class="question-container"><a href="">
                 <div class="check">
                     <img src="check.png" alt="check image">
                     <span>14</span>
@@ -78,8 +88,8 @@
                 <img src="live_off.png" alt="live image">
                 <span>AuthorName</span>
                 </div>
-        </div>
-        <div class="question-container">
+        </a></div>
+        <div class="question-container"><a href="">
                 <div class="check">
                     <img src="check.png" alt="check image">
                     <span>21</span>
@@ -104,8 +114,8 @@
                 <img src="live_off.png" alt="live image">
                 <span>AuthorName</span>
                 </div>
-        </div>
-        <div class="question-container">
+        </a></div>
+        <div class="question-container"><a href="">
                 <div class="check">
                     <img src="check.png" alt="check image">
                     <span>6</span>
@@ -129,8 +139,8 @@
                 <img src="live.png" alt="live image">
                 <span>AuthorName</span>
                 </div>
-        </div>
-        <div class="question-container">
+        </a></div>
+        <div class="question-container"><a href="">
                 <div class="check">
                     <img src="check.png" alt="check image">
                     <span>13</span>
@@ -154,8 +164,8 @@
                 <img src="live_off.png" alt="live image">
                 <span>AuthorName</span>
                 </div>
-        </div>
-        <div class="question-container">
+        </a></div>
+        <div class="question-container"><a href="">
                 <div class="check">
                     <img src="check.png" alt="check image">
                     <span>5</span>
@@ -179,8 +189,7 @@
                 <img src="live_off.png" alt="live image">
                 <span>AuthorName</span>
                 </div>
-        </div>
-
+        </a></div>
     </div>
     <script>
         let menuBtn = document.getElementById('menuBtn');
