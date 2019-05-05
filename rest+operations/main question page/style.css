@@ -1,7 +1,7 @@
 body,html{
     height:100%;
     position:relative;
-    height:auto;
+  
     margin:0;
     font-size:15px;
     background-blend-mode: darken;
@@ -66,6 +66,7 @@ body{
 }
 .content{
     width:100%;
+    
     display:inline-block;
     margin-left:0;
     transition: all 0.5s ease-in-out;
