@@ -66,12 +66,8 @@ echo '
 </div>';}else {
 if($op->db->checkAnswerExistence($id,$_GET["id"])==1){
 	//a raspuns la intrebare si nu este cel care are intrebarea
-	if(strlen($op->checkFeedback($id,$_GET["id"]))>0){
-		echo $op->checkFeedback($id,$_GET["id"]);
-	}else {
-		echo "Your don't have a feedback yet .";
-
-	}
+	echo "<div class='question'>Solutia ta :".$op->getAnswer($id,$_GET["id"])."</div></br>";
+	echo "<div class='question'>Feedback :".$op->getfeedback($id,$op->getAnswerId($id,$_GET["id"]))."</div>";
 }
 else{ //e intrebarea lui
 

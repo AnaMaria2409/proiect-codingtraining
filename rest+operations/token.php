@@ -12,7 +12,7 @@ public function vtoken($token){
 }
 public function vuser($a,$b){
     //sa nu existe deja un token . 
-
+ 
     $sql = "SELECT username FROM utilizatori WHERE (username='$a' and parola='$b')";
 	
 	$result = mysqli_query($this->db->conn,$sql) or die("Bad query $sql");

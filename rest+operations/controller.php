@@ -26,7 +26,7 @@ class controller{
  			 break;
  			 case 'putquestion':
  			 if(isset($_REQUEST['type']) and isset($_REQUEST['question']))
- 			 	$this->response["response"]=$this->operation->putquestion($_REQUEST['type'],$_REQUEST['question']);
+ 			 	$this->response["response"]=$this->operation->putquestion($_REQUEST["question"],$_REQUEST["category"],$_REQUEST["difficulty"],$_REQUEST["solution"]);
  			 else  $this->response["error"]="type is null/question is null";
  			 break;
  			 case 'answertoquestion':

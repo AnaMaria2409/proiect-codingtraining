@@ -47,11 +47,11 @@ else header("Location: ../paginalogare/paginalogare.php");
         </div>
         <div id="question-statement">
             <p>Write your question:</p>
-            <textarea name="question"></textarea>
+            <textarea name="question" required></textarea>
         </div>
         <div id="question-description">
                 <p>Describe your solution:</p>
-                <textarea name="solution"></textarea>
+                <textarea name="solution" required></textarea>
         </div>
     
         <input type="submit" class="button" value="SEND">
