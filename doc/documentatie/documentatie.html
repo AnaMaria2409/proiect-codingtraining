@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Scholarly HTML</title>
+    <link rel="stylesheet" href="doc_style.css">
+    <script src="js/scholarly.min.js"></script>
+  </head>
+  <body prefix="schema: http://schema.org">
+    
+  <article resource="#" typeof="schema:ScholarlyArticle">
+  <header>
+    <h1 property="schema:name">Coding training - documentatie</h1>
+  </header>
+</article>
+    <section typeof="sa:AuthorsList">
+      <h2>Authors</h2>
+      <ul>
+        <li typeof="sa:ContributorRole" property="schema:author">
+          <span typeof="schema:Person">
+            <meta property="schema:givenName" content="George">
+            <meta property="schema:additionalName" content="Valentin">
+            <meta property="schema:familyName" content="Todireanu">
+            <span property="schema:name">George Valentin Todireanu</span>
+          </span>
+          </li>
+          <li typeof="sa:ContributorRole" property="schema:author">
+            <span typeof="schema:Person">
+              <meta property="schema:givenName" content="Ana">
+              <meta property="schema:additionalName" content="Maria">
+              <meta property="schema:familyName" content="Bumbu">
+              <span property="schema:name">Ana-Maria Bumbu</span>
+            </span>
+            </li>
+            <li typeof="sa:ContributorRole" property="schema:author">
+              <span typeof="schema:Person">
+                <meta property="schema:givenName" content="Denis">
+                <meta property="schema:familyName" content="Alexandru">
+                <span property="schema:name">Denis Alexandru</span>
+              </span>
+              </li>
+    </section>
+  
+    <section id="introduction" role="doc-introduction">
+      <!-- review? -->
+      <h2>Introducere</h2>
+      <p>
+        Coding Training isi propune sa fie o platforma online de exersare si invatare a diferitelor limbaje de programare. 
+        Platforma sa a axa atat pe partea de frontend cu exercitii de HTML, CSS, dar si pe partea de backend in limbajele PHP si Java. 
+      </p>
+    </section>
+
+    <section id="Api">
+      <h2>API REST</h2>
+      <p>
+      <span typeof="schema:Action">
+      Aplicatia noastra are la baza un API REST pentru afisarea si adaugarea intrebarilor doar dupa autentificare. Pentru realiarea acestuia s-au creat mai 
+      multe functii ce lucreaza cu baza de date.
+      Intrebarile pot fi afisate si adaugate de catre <span property="schema:agent"> un utilizator</span> in mai multe moduri:
+      <ul>
+        <li><span property="schema:instrument"><b>"rest.php/getquestion?id="</b></span> <span property="schema:result"> - afisare toate intrebarile neraspunse</span>  </li>
+        <li><span property="schema:instrument"> <b>"rest.php/getquestions"</b> </span> <span property="schema:result"> - afisare doar o intrebare dupa id </span></li>
+        <li><span property="schema:instrument"><b>"rest.php/getallownedquestions"</b> </span> <span property="schema:result">- afisare intrebarile adaugate de utilizator</span></li>
+        <li><span property="schema:instrument"><b>"rest.php/putquestion"</b> </span> <span property="schema:result"> - adauga o noua intrebare </span></li>
+        <li><span property="schema:instrument"><b>"rest.php/answertoquestion?id= & answear="</b> </span> <span property="schema:result">- raspunde la o intrebare dupa id</span></li>
+        <li><span property="schema:instrument"><b>"rest.php/getOwnerFromQuestion?id="</b> </span> <span property="schema:result">- afisare autor intrebare</span></li>
+      </ul>
+    </span>
+      </p>
+    </section>
+
+      <section id ="autentificare">
+        <h2>Autentificare</h2>
+        Autentificarea se poate face in trei moduri:
+        <ul>
+        <li>Pe pagina principala in formularul de Sign up unde trebuie completate datele noului utilizator.
+        In baza de date se vor adauga numele de utilizator, emailul si parola criptata cu algoritmul md5.
+        </li>
+       <li>Un alt mod este prin conectarea du contul de github. Pentru implementare s-a golosit biblioteca pusa la dispozitie de platforma Facebook.</li>
+      <li>Se poate crea un cont si prin intermediul autentificarii cu Github.A fost creata o aplicate OAuth pe site-ul celor de la github prin intermediul carora prelucram datele utilizatorilor.
+        Bibiloteca folosita a fost "..src/Github_OAuth_Client.php" pusa la dispozitie de codexworld.
+      </li>
+      </ul>
+      Dupa autentificare pentru a persista clientii este creat un token de access. Acesta e format din username, parola criptata si un cuvant secret dupa care totul este criptat cu algoritmul md5 si adaugat in cookie.
+      </section>
+
+      <section id="gestiune intrebari">
+        <h2>Gestiune intrebari</h2>
+        <p>
+        Principala functionalitate a aplicatiei noastre este de a raspunde la intrebari. Pe pagina principala cu 
+        intrebari sunt afisate cele la care utilizatorul nu a raspuns inca. In menu utilizatorul poate filtra in funtie de categoria
+        de intrebari pe care doreste sa o vada. Exista un buton pentru afisarea intrebarilor pe care un utilizator le-a adaugat 
+       <p>si unul pentru a vedea intrebarile la care a raspuns si feedback-ul primit la acestea.</p>
+        Un feedback se poate adauga de la sectiunea de intrebari adaugate. In dreptul fiecarei intrebari apare numele
+        ersoanei ce a adaugat un raspuns iar prin click se poate adauga feedback-ul.</p>
+        <p>
+        Pentru a adauga o intrebare exista o pagina destinata de unde se alege categoria, dificultatea si se scrie intrebarea 
+        impreuna cu solutia.
+        </p>
+        <p>
+          Toate aceste functionalitati au fost realizate prin operatii pe baza de date ce nu permit 
+          sql injection deoarece s-au folosit prepare statment-uri.
+        </p>
+      </section>
+      
+      <section id="livestream">
+        <h2>Livestream</h2>
+        <p>
+          Pentru a crea un livestream doar utilizatorii care au acest privilegiu vor avea in pagina butonul de creat.
+          Ceilalti utilizatori vor putea alege dintr-o lista de livestreamuri careaulocinacle moment
+          unul pecare sa-l vizioneze.
+        </p>
+        <p>
+        Livestream-ul este realizat prin intermediul web socketurilor si a bibliotecii Ratchet. In background
+        ruleaza serverul pentru a se putea realiza conexiuni. Pentru a porni un video se face un apel javascript
+        pentru a cere permisiunea utilizatorului de a folosi camera si microfonului dupa care este 
+        adaugat intr-un canvas.
+      </p>
+      </section>
+
+      <section id="cod-sursa">
+        <h2>Cod sursa</h2>
+          Codul sursa a fost manageriat folosind platforma github. Modificarile au fost urcate de fiecare coechipier. Task-urile au fost 
+          impartite pe trello. Arhitectura aplicatie este de tip MVC. 
+      </section>
+
+      <section id="bibliografie">
+        <h2>Bibliografie</h2>
+         <dl>
+           <dt id="ref-schema.org">schema.org</dt>
+           <dd property="schema:citation" typeof="schema:WebPage" resource="http://schema.org/">
+          <cite property="schema:name">
+            <a href="http://www.schema.org/">schema.org</a>
+          </cite>
+        </dd>
+         </dl>
+
+         <dl>
+            <dt id="ref-github-login.org">Github login by Codexworld</dt>
+            <dd property="schema:citation" typeof="schema:WebPage" resource="https://www.codexworld.com/login-with-github-oauth-api-using-php/">
+           <cite property="schema:name">
+             <a href="https://www.codexworld.com/login-with-github-oauth-api-using-php/">codexworld.com</a>
+           </cite>
+         </dd>
+          </dl>
+
+          <dl>
+              <dt id="ref-facebook-login.org">Facebook login</dt>
+              <dd property="schema:citation" typeof="schema:WebPage" resource="https://developers.facebook.com">
+             <cite property="schema:name">
+               <a href="https://developers.facebook.com">developers.facebook.com</a>
+             </cite>
+           </dd>
+            </dl>
+
+            <dl>
+                <dt id="ref-video.org">Streaming webcam</dt>
+                <dd property="schema:citation" typeof="schema:WebPage" resource="https://www.youtube.com/watch?v=nCrQ1A2BEZ0">
+               <cite property="schema:name">
+                 <a href="https://www.youtube.com/watch?v=nCrQ1A2BEZ0">youtube.com</a>
+               </cite>
+             </dd>
+              </dl>
+              
+            <dl>
+                <dt id="ref-video.org">Ratchet library</dt>
+                <dd property="schema:citation" typeof="schema:WebPage" resource="http://socketo.me/docs/hello-world">
+               <cite property="schema:name">
+                 <a href="http://socketo.me/docs/hello-world">socketo.me</a>
+               </cite>
+             </dd>
+              </dl>
+      </section>
+  </body>
+</html>
